@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, Grid, Header, Image, Message, Segment} from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Message, Segment} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 class Register extends Component {
@@ -17,7 +17,6 @@ class Register extends Component {
     if(e.target.name !== 'image'){
       this.setState({[e.target.name]: e.target.value});
     } else {
-      // file upload
       console.log(e.target.files[0])
       this.setState({image: e.target.files[0]});
     }
@@ -43,11 +42,11 @@ class Register extends Component {
         if(data.status.message === "Success"){
           this.props.history.push('/profile')
         } else {
-          console.log(data, ' this should have an error message? How could you display that on the screen')
+          console.log(data, ' <--- data')
         }
     })
   }
-  
+   
   render(){
     return (
       <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
