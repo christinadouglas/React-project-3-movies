@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Login from './Login'
+import Register from './Register'
 
 const My404 = () =>{
   return (
@@ -26,7 +27,7 @@ class App extends Component {
 
       const loginResponse = await fetch('http://localhost:8000/user/login', {
         method: 'POST',
-        credentials: 'include',// on every request we have to send the cookie
+        credentials: 'include',
         body: JSON.stringify(loginInfo),
         headers: {
           'Content-Type': 'application/json'
@@ -49,12 +50,41 @@ class App extends Component {
       console.log(err)
     }
   }
+
+  register = async (data) => {
+    try {
+
+     const registerResponse = await fetch('http://localhost:8000/user/register', {
+       method: 'POST',
+       credentials: 'include',
+       body: data,
+       headers: {
+         'enctype': 'multipart/form-data'
+       }
+     })
+
+     const parsedResponse = await registerResponse.json();
+
+     console.log(parsedResponse)
+
+     this.setState({
+       ...parsedResponse.data,
+       loading: false
+     })
+     return parsedResponse;
+
+   } catch (err) {
+     console.log(err)
+   }
+ }
   render() {
 
   return (
     <div className="App">
       <Switch>
-      <Route exact path="/" render={(props) => <Login {...props} logIn={this.logIn} />} />
+        <Route exact path="/" render={(props) => <Login {...props} logIn={this.logIn} />} />
+        <Route exact path="/register" render={(props) => <Register {...props} register={this.register} /> } />
+        <Route component={My404} />
       </Switch>
     </div>
   );
