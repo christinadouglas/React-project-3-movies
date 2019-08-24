@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CreateMovie from './CreateMovie';
 import MovieList from './MovieList';
-// import EditMovie from './EditMovie';
+import EditMovie from './EditMovie';
 // import './style.css'
 
 class MovieContainer extends Component {
@@ -164,7 +164,7 @@ class MovieContainer extends Component {
       <div className='movie-container'>
         <CreateMovie addMovie={this.addMovie}/>
         <MovieList movies={this.state.movies} showModal={this.showModal} deleteMovie={this.deleteMovie}/>
-        {/* {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null} */}
+        {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null}
       </div>
       )
   }
