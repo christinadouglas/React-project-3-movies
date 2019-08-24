@@ -20,8 +20,11 @@ class CreateMovie extends Component {
         <label htmlFor="title">Movie:
           <input type="text" name="title" onChange={this.updateMovie} value={this.state.title}/>
         </label>
-        <label htmlFor="description">description:
-          <input type="text" name="description" onChange={this.updateMovie} value={this.state.description}/>
+        <label htmlFor="writers">Writers:
+          <input type="text" name="writers" onChange={this.updateMovie} value={this.state.description}/>
+        </label>
+        <label htmlFor="Actors">Actors:
+          <input type="text" name="actors" onChange={this.updateMovie} value={this.state.description}/>
         </label>
         <button type='submit'>
           Create Movie

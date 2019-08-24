@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Header, Card} from 'semantic-ui-react';
+
 class Profile extends Component {
   constructor(){
     super();
