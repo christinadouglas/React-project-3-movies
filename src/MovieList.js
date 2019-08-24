@@ -6,7 +6,8 @@ const Movies = (props) => {
     return (
       <li key={movie._id}>
         <span>{movie.title}</span><br/>
-        <span>{movie.description}</span><br/>
+        <span>{movie.actors}</span><br/>
+        <span>{movie.writers}</span><br/>
         <button onClick={props.deleteMovie.bind(null, movie._id)}>Delete</button><br/>
         <button onClick={props.showModal.bind(null, movie)}>edit</button>
       </li>

@@ -7,7 +7,8 @@ class CreateMovie extends Component {
 
     this.state = {
       title: '',
-      description: ''
+      actors: '',
+      writers:''
     }
 
   }
@@ -21,10 +22,10 @@ class CreateMovie extends Component {
           <input type="text" name="title" onChange={this.updateMovie} value={this.state.title}/>
         </label>
         <label htmlFor="writers">Writers:
-          <input type="text" name="writers" onChange={this.updateMovie} value={this.state.description}/>
+          <input type="text" name="writers" onChange={this.updateMovie} value={this.state.writers}/>
         </label>
         <label htmlFor="Actors">Actors:
-          <input type="text" name="actors" onChange={this.updateMovie} value={this.state.description}/>
+          <input type="text" name="actors" onChange={this.updateMovie} value={this.state.actors}/>
         </label>
         <button type='submit'>
           Create Movie
