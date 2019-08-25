@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreateMovie from './CreateMovie';
 import MovieList from './MovieList';
 import EditMovie from './EditMovie';
-import { Container} from 'semantic-ui-react'
+import { Container, Grid } from 'semantic-ui-react'
 import Headers from './Header'
 import './style.css'
 
@@ -167,10 +167,13 @@ class MovieContainer extends Component {
       <div className='movie-container'>
         <Headers as='h2' textAlign='center'>
             Movies
-          </Headers>
+        </Headers>
+        <Grid>
+        <Grid.Column floated='left' width={5}></Grid.Column>
         <CreateMovie addMovie={this.addMovie}/>
         <MovieList movies={this.state.movies} showModal={this.showModal} deleteMovie={this.deleteMovie}/>
         {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null}
+        </Grid>
       </div>
       )
   }

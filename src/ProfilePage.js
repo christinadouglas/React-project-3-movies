@@ -38,7 +38,7 @@ class Profile extends Component {
             Login
           </Headers>
             <Header as='h2' textAlign='center'>
-              {this.props.userInfo.username}'s Movies
+              {this.props.userInfo.username}
             </Header>
           </Grid.Column>
         </Grid.Row>
