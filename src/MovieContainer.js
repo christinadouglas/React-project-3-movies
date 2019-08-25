@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import CreateMovie from './CreateMovie';
 import MovieList from './MovieList';
 import EditMovie from './EditMovie';
-// import './style.css'
+import { Container} from 'semantic-ui-react'
+import './style.css'
 
 class MovieContainer extends Component {
   constructor(){
@@ -14,7 +15,8 @@ class MovieContainer extends Component {
       movieToEdit: {
         _id: null,
         title: '',
-        description: ''
+        actors: '',
+        writers: ''
       }
     }
   }
@@ -58,14 +60,14 @@ class MovieContainer extends Component {
         method: 'GET'
       });
 
-      console.log(responseGetMovies, ' responseGetMovies')
+      console.log(responseGetMovies, '<--- responseGetMovies')
 
       if(responseGetMovies.status !== 200){
         throw Error('404 from server');
       }
 
       const moviesResponse = await responseGetMovies.json();
-      console.log(moviesResponse, ' moviesResponse <')
+      console.log(moviesResponse, '<--- moviesResponse ')
 
       this.setState({
         movies: [...moviesResponse.data]
@@ -87,7 +89,7 @@ class MovieContainer extends Component {
   }
 
   showModal = (movie) => {
-    console.log(movie, ' movieID in show Modal')
+    console.log(movie, '<--- movieID in show Modal')
     this.setState({
       movieToEdit: movie,
       showEditModal: !this.state.showEditModal
@@ -108,7 +110,7 @@ class MovieContainer extends Component {
       })
 
       if(editRequest.status !== 200){
-        throw Error('editResquest not working')
+        throw Error('editRequest not working')
       }
 
       const editResponse = await editRequest.json();
@@ -125,7 +127,7 @@ class MovieContainer extends Component {
         showEditModal: false
       })
 
-      console.log(editResponse, ' editResponse');
+      console.log(editResponse, '<--- editResponse');
 
     } catch(err){
       console.log(err, ' error closeAndEdit');
@@ -134,7 +136,7 @@ class MovieContainer extends Component {
   }
 
   deleteMovie = async (id) => {
-    console.log(id, ' delete movie ID')
+    console.log(id, '<--- delete movie ID')
 
     try {
 
@@ -159,7 +161,7 @@ class MovieContainer extends Component {
     }
   }
   render(){
-    console.log(this.state, "< state in render");
+    console.log(this.state, "<--- state in render");
     return (
       <div className='movie-container'>
         <CreateMovie addMovie={this.addMovie}/>
