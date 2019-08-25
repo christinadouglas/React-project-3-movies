@@ -6,7 +6,7 @@ const Headers = () => {
 
   return (
     <header>
-      <Menu>
+      <Menu color='black' inverted>
         <Menu.Item>
         <Link to="/">Login </Link>
         </Menu.Item>

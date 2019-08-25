@@ -5,6 +5,7 @@ import Login from './Login'
 import Register from './Register'
 import Profile from './ProfilePage'
 import MovieContainer from './MovieContainer'
+import './App.css'
 
 const My404 = () =>{
   return (

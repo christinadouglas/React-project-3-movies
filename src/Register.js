@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form, Grid, Header, Message, Segment} from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import Headers from './Header'
+import './style.css'
 
 class Register extends Component {
   constructor(){
@@ -51,9 +53,9 @@ class Register extends Component {
     return (
       <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
         <Grid.Column style={{maxWidth: 450}}>
-          <Header as='h2' textAlign='center'>
+          <Headers as='h2' textAlign='center'>
             Register
-          </Header>
+          </Headers>
           <Form onSubmit={this.handleSubmit}>
               <Segment stacked>
               Username:
