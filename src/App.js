@@ -59,7 +59,7 @@ class App extends Component {
         credentials: 'same-origin',
         body: data,
         headers: {
-          'enctype': 'multipart/form-data'
+          'enctype': 'multipart/form-data',
         }
       })
 
