@@ -38,6 +38,7 @@ class Login extends Component {
           <Headers as='h2' textAlign='center'>
             Login
           </Headers>
+          <h2>Login</h2>
           <Form onSubmit={this.handleSubmit}>
               <Segment stacked>
               Email:

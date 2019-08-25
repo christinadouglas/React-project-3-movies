@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Header, Card} from 'semantic-ui-react';
+import Headers from './Header'
 
 class Profile extends Component {
   constructor(){
@@ -33,8 +34,11 @@ class Profile extends Component {
              }
           </Grid.Column>
           <Grid.Column width={8}>
+          <Headers as='h2' textAlign='center'>
+            Login
+          </Headers>
             <Header as='h2' textAlign='center'>
-              {this.props.userInfo.username}'s Dogs
+              {this.props.userInfo.username}'s Movies
             </Header>
           </Grid.Column>
         </Grid.Row>
