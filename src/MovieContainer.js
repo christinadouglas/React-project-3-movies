@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import CreateMovie from './CreateMovie';
 import MovieList from './MovieList';
 import EditMovie from './EditMovie';
-import { Container, Grid } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react'
 import Headers from './Header'
 import './style.css'
 
