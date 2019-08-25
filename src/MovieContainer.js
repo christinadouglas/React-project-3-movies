@@ -3,6 +3,7 @@ import CreateMovie from './CreateMovie';
 import MovieList from './MovieList';
 import EditMovie from './EditMovie';
 import { Container} from 'semantic-ui-react'
+import Headers from './Header'
 import './style.css'
 
 class MovieContainer extends Component {
@@ -164,6 +165,9 @@ class MovieContainer extends Component {
     console.log(this.state, "<--- state in render");
     return (
       <div className='movie-container'>
+        <Headers as='h2' textAlign='center'>
+            Movies
+          </Headers>
         <CreateMovie addMovie={this.addMovie}/>
         <MovieList movies={this.state.movies} showModal={this.showModal} deleteMovie={this.deleteMovie}/>
         {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null}

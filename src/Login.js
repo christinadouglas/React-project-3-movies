@@ -35,9 +35,9 @@ class Login extends Component {
     return (
       <Grid textAlign='center' verticalAlign='middle' style={{ height: '100vh'}}>
         <Grid.Column style={{maxWidth: 450}}>
-          <Header as='h2' textAlign='center'>
+          <Headers as='h2' textAlign='center'>
             Login
-          </Header>
+          </Headers>
           <Form onSubmit={this.handleSubmit}>
               <Segment stacked>
               Email:
