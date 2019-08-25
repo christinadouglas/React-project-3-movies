@@ -5,11 +5,9 @@ const Headers = () => {
 
   return (
     <header>
-      <ul>
-        <li><Link to="/">Login</Link></li>
-        <li><Link to="/profile">Profile</Link></li>
-        <li><Link to="/movies">Movies</Link></li>
-      </ul>
+        <Link to="/">Login </Link>
+        <Link to="/profile">Profile </Link>
+        <Link to="/movies">Movies</Link>
     </header>
     )
 }
