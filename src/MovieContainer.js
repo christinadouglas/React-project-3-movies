@@ -17,7 +17,8 @@ class MovieContainer extends Component {
         _id: null,
         title: '',
         actors: '',
-        writers: ''
+        writers: '',
+        stars: ''
       }
     }
   }
@@ -39,16 +40,16 @@ class MovieContainer extends Component {
         }
   
       })
-    //   console.log(createMovie, "<createMovie fetch")
-    //   if(createMovie.status !== 200){
-    //     throw Error('Resource not found')
-    //   }
-    //   const createMovieResponse = await createMovie.json();
-    //   console.log(createMovieResponse.data, ' createMovieResponse');
+      console.log(createMovie, "<createMovie fetch")
+      if(createMovie.status !== 200){
+        throw Error('Resource not found')
+      }
+      const createMovieResponse = await createMovie.json();
+      console.log(createMovieResponse.data, ' createMovieResponse');
     
-    //   this.setState({
-    //     movies: [...this.state.movies, createMovieResponse.data]
-    //   })
+      this.setState({
+        movies: [...this.state.movies, createMovieResponse.data]
+      })
     } catch(err) {
       console.log(err, ' addMovie');
       return err
@@ -173,8 +174,10 @@ class MovieContainer extends Component {
         <Grid.Column floated='left' width={6}>
         <CreateMovie addMovie={this.addMovie}/>
         </Grid.Column>
+        <Grid.Column floated='right' width={6}>
         <MovieList movies={this.state.movies} showModal={this.showModal} deleteMovie={this.deleteMovie}/>
         {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null}
+        </Grid.Column>
         </Grid>
       </div>
       )

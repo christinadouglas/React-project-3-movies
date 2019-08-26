@@ -19,6 +19,10 @@ const EditMovie = (props) =>  {
           Edit Writers:
           <Form.Input type="text" name="writers" onChange={props.handleFormChange} value={props.movieToEdit.writers}/>
         </Label>
+        <Label>
+          Edit Stars:
+          <Form.Input type="text" name="stars" onChange={props.handleFormChange} value={props.movieToEdit.stars}/>
+        </Label>
         <Button type='Submit'>Edit</Button>
       </Form>
     </div>

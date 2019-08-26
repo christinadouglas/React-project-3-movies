@@ -85,7 +85,7 @@ class App extends Component {
         <Route exact path="/" render={(props) => <Login {...props} logIn={this.logIn} />} />
         <Route exact path="/register" render={(props) => <Register {...props} register={this.register} /> } />
         <Route exact path="/profile" render={(props) =>  <Profile {...props} userInfo={this.state}/> } />
-        <Route exact path='/movies' component={ MovieContainer } />
+        <Route exact path='/movies'  render={(props) =>  <MovieContainer {...props} movies={this.state} /> } /> 
         <Route component={My404} />
       </Switch>
     </div>

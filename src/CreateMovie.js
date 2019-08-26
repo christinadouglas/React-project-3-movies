@@ -9,7 +9,8 @@ class CreateMovie extends Component {
     this.state = {
       title: '',
       actors: '',
-      writers:''
+      writers:'',
+      stars: ''
     }
 
   }
