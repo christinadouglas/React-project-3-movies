@@ -23,15 +23,15 @@ class MovieContainer extends Component {
     }
   }
   componentDidMount(){
-    // this.getMovies();
+    this.getMovies();
   }
 
   addMovie = async (movie, e) => {
     e.preventDefault(); 
     console.log(movie, e, ' inside of addMovie')
-
+    debugger
     try {
-      const createMovie = await fetch('http://localhost:8000/api/v1/movies/',{
+      const createMovie = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/`,{
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(movie),
@@ -58,7 +58,7 @@ class MovieContainer extends Component {
   getMovies = async () => {
 
     try {
-      const responseGetMovies = await fetch('http://localhost:8000/api/v1/movies', {
+      const responseGetMovies = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/`, {
         credentials: 'same-origin',
         method: 'GET'
       });
@@ -103,7 +103,7 @@ class MovieContainer extends Component {
     e.preventDefault();
 
     try {
-      const editRequest = await fetch('http://localhost:8000/api/v1/movies' + this.state.movieToEdit._id, {
+      const editRequest = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/` + this.state.movieToEdit._id, {
         method: 'PUT',
         credentials: 'same-origin',
         body: JSON.stringify(this.state.movieToEdit),
@@ -143,7 +143,7 @@ class MovieContainer extends Component {
 
     try {
 
-      const deleteMovie = await fetch('http://localhost:8000/api/v1/movies' + id, {
+      const deleteMovie = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies` + id, {
         method: 'DELETE',
         credentials: 'same-origin'
       });

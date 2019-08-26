@@ -7,6 +7,8 @@ import Profile from './ProfilePage'
 import MovieContainer from './MovieContainer'
 import './App.css'
 
+console.log(process.env)
+
 const My404 = () =>{
   return (
     <div>
@@ -27,9 +29,9 @@ class App extends Component {
   logIn = async (loginInfo) => {
     try {
 
-      const loginResponse = await fetch('http://localhost:8000/user/login', {
+      const loginResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/login`, {
         method: 'POST',
-        credentials: 'same-origin',
+        credentials: 'include',
         body: JSON.stringify(loginInfo),
         headers: {
           'Content-Type': 'application/json', 
@@ -55,9 +57,9 @@ class App extends Component {
   register = async (data) => {
     console.log(data)
      try {
-      const registerResponse = await fetch('http://localhost:8000/user/register', {
+      const registerResponse = await fetch(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
         method: 'POST',
-        credentials: 'include',// on every request we have to send the cookie
+        credentials: 'include',
         body: data,
         headers: {
           'enctype': 'multipart/form-data'
