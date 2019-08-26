@@ -32,7 +32,7 @@ class App extends Component {
         credentials: 'same-origin',
         body: JSON.stringify(loginInfo),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json', 
         }
       })
 
@@ -55,7 +55,7 @@ class App extends Component {
   register = async (data) => {
      try {
 
-      const registerResponse = await fetch('http://localhost:8000/user/register', {
+      const registerResponse = await fetch('http://localhost:8000/auth/register', {
         method: 'POST',
         credentials: 'same-origin',
         body: data,
