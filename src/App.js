@@ -53,14 +53,14 @@ class App extends Component {
     }
   }
   register = async (data) => {
+    console.log(data)
      try {
-
-      const registerResponse = await fetch('http://localhost:8000/auth/register', {
+      const registerResponse = await fetch('http://localhost:8000/user/register', {
         method: 'POST',
-        credentials: 'same-origin',
+        credentials: 'include',// on every request we have to send the cookie
         body: data,
         headers: {
-          'enctype': 'multipart/form-data',
+          'enctype': 'multipart/form-data'
         }
       })
 

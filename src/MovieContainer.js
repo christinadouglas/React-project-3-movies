@@ -22,32 +22,33 @@ class MovieContainer extends Component {
     }
   }
   componentDidMount(){
-    this.getMovies();
+    // this.getMovies();
   }
+
   addMovie = async (movie, e) => {
     e.preventDefault(); 
     console.log(movie, e, ' inside of addMovie')
 
     try {
-      const createMovie = await fetch('http://localhost:8000/api/v1/movies',{
+      const createMovie = await fetch('http://localhost:8000/api/v1/movies/',{
         method: 'POST',
-        credentials: 'same-origin',
+        credentials: 'include',
         body: JSON.stringify(movie),
         headers: {
-          'Content-Type': 'application/json' 
+          'Content-Type': 'application/json'
         }
   
       })
-      console.log(createMovie, "<createMovie fetch")
-      if(createMovie.status !== 200){
-        throw Error('Resource not found')
-      }
-      const createMovieResponse = await createMovie.json();
-      console.log(createMovieResponse.data, ' createMovieResponse');
+    //   console.log(createMovie, "<createMovie fetch")
+    //   if(createMovie.status !== 200){
+    //     throw Error('Resource not found')
+    //   }
+    //   const createMovieResponse = await createMovie.json();
+    //   console.log(createMovieResponse.data, ' createMovieResponse');
     
-      this.setState({
-        movies: [...this.state.movies, createMovieResponse.data]
-      })
+    //   this.setState({
+    //     movies: [...this.state.movies, createMovieResponse.data]
+    //   })
     } catch(err) {
       console.log(err, ' addMovie');
       return err
@@ -169,8 +170,9 @@ class MovieContainer extends Component {
             Movies
         </Headers>
         <Grid>
-        <Grid.Column floated='left' width={5}></Grid.Column>
+        <Grid.Column floated='left' width={6}>
         <CreateMovie addMovie={this.addMovie}/>
+        </Grid.Column>
         <MovieList movies={this.state.movies} showModal={this.showModal} deleteMovie={this.deleteMovie}/>
         {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null}
         </Grid>

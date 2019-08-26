@@ -19,7 +19,7 @@ class CreateMovie extends Component {
   render(){
     return (
       <form onSubmit={this.props.addMovie.bind(null, this.state)}>
-        <Segment>
+        <Segment color='black'>
         <label htmlFor="title">Movie:
           <input type="text" name="title" onChange={this.updateMovie} value={this.state.title}/>
         </label>
@@ -32,6 +32,11 @@ class CreateMovie extends Component {
         <Segment>
         <label htmlFor="Actors">Actors:
           <input type="text" name="actors" onChange={this.updateMovie} value={this.state.actors}/>
+        </label>
+        </Segment>
+        <Segment>
+        <label htmlFor="Stars">Stars:
+          <input type="text" name="stars" onChange={this.updateMovie} value={this.state.stars}/>
         </label>
         </Segment>
         <button type='submit'>
