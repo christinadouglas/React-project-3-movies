@@ -18,7 +18,7 @@ const Movies = (props) => {
   return (
     <div>
       <h3>Movies</h3>
-      <ul>
+      <ul style={{ listStyleType: "none"}}>
         {movieList}
       </ul>
     </div>
