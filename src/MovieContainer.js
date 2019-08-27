@@ -29,7 +29,6 @@ class MovieContainer extends Component {
   addMovie = async (movie, e) => {
     e.preventDefault(); 
     console.log(movie, e, ' inside of addMovie')
-    debugger
     try {
       const createMovie = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/`,{
         method: 'POST',
@@ -103,7 +102,7 @@ class MovieContainer extends Component {
     e.preventDefault();
 
     try {
-      const editRequest = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/` + this.state.movieToEdit._id, {
+      const editRequest = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/${this.state.movieToEdit._id}`, {
         method: 'PUT',
         credentials: 'same-origin',
         body: JSON.stringify(this.state.movieToEdit),
@@ -143,7 +142,7 @@ class MovieContainer extends Component {
 
     try {
 
-      const deleteMovie = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies` + id, {
+      const deleteMovie = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/movies/${id}` , {
         method: 'DELETE',
         credentials: 'same-origin'
       });
@@ -171,10 +170,10 @@ class MovieContainer extends Component {
             Movies
         </Headers>
         <Grid>
-        <Grid.Column floated='left' width={6}>
+        <Grid.Column floated='left' width={4}>
         <CreateMovie addMovie={this.addMovie}/>
         </Grid.Column>
-        <Grid.Column floated='right' width={6}>
+        <Grid.Column floated='right' width={8}>
         <MovieList movies={this.state.movies} showModal={this.showModal} deleteMovie={this.deleteMovie}/>
         {this.state.showEditModal ? <EditMovie closeAndEdit={this.closeAndEdit} movieToEdit={this.state.movieToEdit} handleFormChange={this.handleFormChange}/> : null}
         </Grid.Column>

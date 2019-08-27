@@ -8,7 +8,7 @@ class Login extends Component {
     super();
 
     this.state = {
-      email: '',
+      username: '',
       password: ''
     }
   }
@@ -41,10 +41,10 @@ class Login extends Component {
           <h2>Login</h2>
           <Form onSubmit={this.handleSubmit}>
               <Segment stacked>
-              Email:
-              <Form.Input fluid icon='mail' iconPosition='left' placeholder='email' type='text' name='email' onChange={this.handleChange}/>
+              Username:
+              <Form.Input fluid icon='mail' iconPosition='left' placeholder='Username' type='text' name='username' onChange={this.handleChange}/>
               Password:
-              <Form.Input fluid icon='lock' iconPosition='left' type='password' name='password' onChange={this.handleChange}/>
+              <Form.Input fluid icon='lock' iconPosition='left' type='password' placeholder='Password' name='password' onChange={this.handleChange}/>
               <Button fluid size='large' type='sumbit'>Login</Button>
               <Message>
                 Not a member? <Link to='/register'>Register</Link>
